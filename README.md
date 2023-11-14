@@ -12,8 +12,8 @@ Key Features:
 
 Example Process:
 1. Open Python script.
-2. Make choices by typing in the corresponding numbers (1 to add an expense, 2 to see expenses, and 3 to call it a day).
-3. When you add an expense, simply throw in a description and the amount spent.
+2. Make choices by typing in the corresponding action (add an expense, see expenses, or report all expenses).
+3. When you add an expense, simply add in a description and the amount spent.
 4. When the user wants to see their expenses, the program will display a list with each expense numbered.
 5. Keep entering or reviewing expenses. 
 6. Exit the program.
