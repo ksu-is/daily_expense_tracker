@@ -21,14 +21,14 @@ def main():
     while True:
         print("\nExpense Tracker Menu:")
         print("1. Add Expense")
-        print("2. Display Expenses")
+        print("2. Display All Expenses")
         print("3. Exit")
 
-        choice = input("Enter your choice (1/2/3): ")
+        choice = input("Enter your choice: ")
 
         if choice == '1':
             date = input("Enter the date (YYYY-MM-DD): ")
-            category = input("Enter the category: ")
+            category = input("Enter the category (Food, Entertainment, Rent, etc.): ")
             amount = float(input("Enter the amount: $"))
             expense_tracker.add_expense(date, category, amount)
             print("Expense added successfully!")
@@ -46,3 +46,5 @@ def main():
 if __name__ == "__main__":
     main()
 
+# add total line when displaying expenses
+# Tweak formatting 
