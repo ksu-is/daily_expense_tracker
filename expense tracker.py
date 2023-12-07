@@ -10,10 +10,14 @@ class ExpenseTracker:
         if not self.expenses:
             print("No expenses recorded.")
         else:
-            print("Date\t\tCategory\tAmount")
-            print("----------------------------------")
+            print("{:<12} {:<15} {:<10}".format("Date", "Category", "Amount"))
+            print("-" * 40)
+            total_expense = 0
             for expense in self.expenses:
-                print(f"{expense['date']}\t{expense['category']}\t\t${expense['amount']}")
+                print("{:<12} {:<15} ${:<05}".format(expense['date'], expense['category'], expense['amount']))
+                total_expense += expense['amount']
+            print("-" * 40)
+            print("{:<27} ${:<10}".format("Total Expenses:", total_expense))
 
 def main():
     expense_tracker = ExpenseTracker()
@@ -46,5 +50,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-# add total line when displaying expenses
-# Tweak formatting 
