@@ -13,19 +13,19 @@ class ExpenseTracker:
     def display_expenses(self):
         # Check if there are no expenses recorded
         if not self.expenses:
-            print("No expenses recorded.")
+            print("\nNo expenses recorded.")
         else:
             # Display a table header for Date, Category, and Amount
-            print("{:<12} {:<15} {:<10}".format("Date", "Category", "Amount"))
+            print("{:<12} {:<15} {:<15}".format("\nDate", "Category", "Amount"))
             print("-" * 40)
             total_expense = 0
             # Iterate through each expense and display its details
             for expense in self.expenses:
-                print("{:<12} {:<15} ${:<05}".format(expense['date'], expense['category'], expense['amount']))
+                print("{:<12} {:<15} ${:<13,.2f}".format(expense['date'], expense['category'], expense['amount']))
                 total_expense += expense['amount']
             print("-" * 40)
             # Display the total of all expenses
-            print("{:<27} ${:<10}".format("Total Expenses:", total_expense))
+            print("{:<27} ${:<13,.2f}".format("Total Expenses:", total_expense))
 
 # Function to run the main Expense Tracker program
 def main():
@@ -36,21 +36,27 @@ def main():
     while True:
         # Display the menu options
         print("\nExpense Tracker Menu:")
-        print("1. Add Expense")
+        print("\n1. Add Expense")
         print("2. Display All Expenses")
         print("3. Exit")
 
         # Get user choice
-        choice = input("Enter your choice: ")
+        choice = input("\nEnter your choice: ")
 
         # Process user's choice
         if choice == '1':
             # Get user input for a new expense and add it to the tracker
-            date = input("Enter the date (YYYY-MM-DD): ")
+            date = input("\nEnter the date (YYYY-MM-DD): ")
             category = input("Enter the category (Food, Entertainment, Rent, etc.): ")
-            amount = float(input("Enter the amount: $"))
-            expense_tracker.add_expense(date, category, amount)
-            print("Expense added successfully!")
+            amount_input = input("Enter the amount: $")
+
+            # Check if any input is empty
+            if not date or not category or not amount_input:
+                print("\nIncomplete input. Please provide values for date, category, and amount.")
+            else:
+                amount = float(amount_input)
+                expense_tracker.add_expense(date, category, amount)
+                print("\nExpense added successfully!")
 
         elif choice == '2':
             # Display all recorded expenses
@@ -58,12 +64,12 @@ def main():
 
         elif choice == '3':
             # Exit the program
-            print("Exiting the Expense Tracker. Goodbye!")
+            print("\nExiting the Expense Tracker. Goodbye!")
             break
 
         else:
             # Handle invalid user input
-            print("Invalid choice. Please enter a valid option.")
+            print("\nInvalid choice. Please enter a valid option.")
 
 # Run the main function if this script is executed
 if __name__ == "__main__":
